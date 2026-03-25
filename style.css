@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #1e1e2f;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.room {
+  position: relative;
+  height: 80vh;
+  background: url('images/room-background.jpg') center/cover;
+}
+
+.object {
+  position: absolute;
+  width: 90px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.object:hover {
+  transform: scale(1.2);
+}
+
+/* позиции */
+#portfolioObj { top: 50px; left: 100px; }
+#blogObj { top: 50px; right: 100px; }
+#resumeObj { bottom: 50px; left: 100px; }
+#contactsObj { bottom: 50px; right: 100px; }
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  background: #2c2c3c;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.popup.active {
+  display: block;
+}
+
+.closeBtn {
+  float: right;
+  cursor: pointer;
+  background: red;
+  padding: 5px;
+}
+
+.portfolio img {
+  width: 150px;
+  margin: 10px;
+}
