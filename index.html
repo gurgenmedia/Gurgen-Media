@@ -1,114 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gurgen Media</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #cce7ff;
-    overflow-x: hidden;
-  }
-  h1 { text-align: center; margin: 20px 0; }
-  .room {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    background: url https://previews.123rf.com/images/minny0012011/minny00120112308/minny0012011230800189/210594396-empty-room-japanese-minimalist-room-interior.jpg center/cover no-repeat;
-  }
-  .object {
-    position: absolute;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  .object:hover { transform: scale(1.1); }
-  /* Пример позиций объектов */
-  #portfolioObj { top: 50px; left: 100px; width: 100px; }
-  #blogObj { top: 50px; right: 100px; width: 100px; }
-  #resumeObj { bottom: 50px; left: 100px; width: 100px; }
-  #contactsObj { bottom: 50px; right: 100px; width: 100px; }
-
-  .popup {
-    display: none;
-    position: fixed;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    max-width: 900px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 10;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  }
-  .popup.active { display: block; }
-  .closeBtn {
-    float: right;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 5px;
-    background: #ccc;
-    border-radius: 5px;
-  }
-  .portfolio img { max-width: 150px; margin: 10px; border-radius: 5px; }
-</style>
+  <meta charset="UTF-8">
+  <title>Тряфа фотограф</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Виртуальный дом Тряфа фотограф</h1>
+<h1>Мой виртуальный дом</h1>
 
 <div class="room">
-  <img id="portfolioObj" class="object" src="icons/portfolio-icon.png" alt="Портфолио">
-  <img id="blogObj" class="object" src="icons/blog-icon.png" alt="Блог">
-  <img id="resumeObj" class="object" src="icons/resume-icon.png" alt="Резюме">
-  <img id="contactsObj" class="object" src="icons/contacts-icon.png" alt="Контакты">
+  <img id="portfolioObj" class="object" src="images/portfolio-icon.png">
+  <img id="blogObj" class="object" src="images/blog-icon.png">
+  <img id="resumeObj" class="object" src="images/resume-icon.png">
+  <img id="contactsObj" class="object" src="images/contacts-icon.png">
 </div>
 
-<!-- Попапы -->
 <div id="portfolioPopup" class="popup">
   <span class="closeBtn" onclick="closePopup('portfolioPopup')">×</span>
   <h2>Портфолио</h2>
-  <div class="portfolio">
-    <img src="photo1.jpg" alt="Фото 1">
-    <img src="photo2.jpg" alt="Фото 2">
-  </div>
+  <div id="gallery" class="portfolio"></div>
+  <input type="file" id="upload" multiple>
 </div>
 
 <div id="blogPopup" class="popup">
   <span class="closeBtn" onclick="closePopup('blogPopup')">×</span>
   <h2>Блог</h2>
-  <p>Здесь я делюсь своими мыслями о фотографии и проектах.</p>
+  <textarea id="blogText" placeholder="Пиши сюда..."></textarea>
 </div>
 
 <div id="resumePopup" class="popup">
   <span class="closeBtn" onclick="closePopup('resumePopup')">×</span>
   <h2>Резюме</h2>
-  <p>Опыт работы, навыки и достижения.</p>
+  <p>Твой опыт и навыки</p>
 </div>
 
 <div id="contactsPopup" class="popup">
   <span class="closeBtn" onclick="closePopup('contactsPopup')">×</span>
   <h2>Контакты</h2>
-  <p>Email: <a href="mailto:example@email.com">example@email.com</a></p>
-  <p>Instagram: <a href="https://www.instagram.com/gurgen.media/" target="_blank">@gurgen.media</a></p>
+  <p>Email: example@email.com</p>
 </div>
-
-<script>
-  document.getElementById('portfolioObj').onclick = () => openPopup('portfolioPopup');
-  document.getElementById('blogObj').onclick = () => openPopup('blogPopup');
-  document.getElementById('resumeObj').onclick = () => openPopup('resumePopup');
-  document.getElementById('contactsObj').onclick = () => openPopup('contactsPopup');
-
-  function openPopup(id) {
-    document.getElementById(id).classList.add('active');
-  }
-  function closePopup(id) {
-    document.getElementById(id).classList.remove('active');
-  }
-</script>
 
 <script src="script.js"></script>
 </body>
